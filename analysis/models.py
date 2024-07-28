@@ -34,16 +34,15 @@ mdList = getColumn(md,mdColumnName)
 
 def percentChange (list):
     """
-    Crab Popualtion Count Locater
+   Calcuate Crab Population Percentage Change Year to Year
 
     Parameters
-    df : pandas dataframe
-        dataset on crab populations for a given year for a certain state.
-    columnName : string
-        name of the column in the dataset that has the crab population counts
+    list : list
+        List of crab population counts from a given year.
 
     Returns
-    list : The column of crab population count values as a list
+    myMax : The greatest observed percent change between two years' crab populations
+    myPercents : List of the year to year percent changes in crab population
     """
     myArray = np.array(list)
     myPercents = np.diff(myArray)/myArray[:-1]*100
@@ -51,7 +50,7 @@ def percentChange (list):
     #myMin = np.min(np.abs(myPercents))
     return myMax, myPercents
 
-
+#Call function for both states inorder to collect stats on change in populations 
 mdStats = percentChange(mdList)
 ncStats = percentChange(ncList)
 #print(mdStats)
