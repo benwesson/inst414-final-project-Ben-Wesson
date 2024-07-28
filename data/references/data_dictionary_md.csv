@@ -1,0 +1,8 @@
+﻿attribute_name,description,data_type,example_vaue,unit
+Survey year ,The given year that crab population was analyzed,catgorical ,2020,years
+Total Number of Crabs,The total amount of crabs estimated to live in the chesapeake bay.,numeric,405,millions
+Number of Juvenile Crabs,Number of crabs who cannot reproduce yet.,numeric,185,millions
+Number of Spawning Age Crabs,Number of crabs who can reproduce.,numeric,220,millions
+Number of Female Spawning Age Crabs,Number of  female crabs who can reproduce.,numeric,141,millions
+Bay-wide Commerical Harvest,Number of crabs caught in Chesapeake Bay,numeric,61,millions
+Percentage of Female Crabs Harvested,Number of feamale crabs caught in Chesapeake Bay,numeric,17,millions

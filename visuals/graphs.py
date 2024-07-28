@@ -79,7 +79,8 @@ def lineGraph(xAxis,yAxis):
     plt.show()
 
 #Important to exclude first year becasue the percentages are values of change between 2 years
-ncGraph = lineGraph(ncYears[1:],ncCrabs)
-mdGraph = lineGraph(mdYears[1:],mdCrabs)
+#Uncomment to generate visuals
+#ncGraph = lineGraph(ncYears[1:],ncCrabs)
+#mdGraph = lineGraph(mdYears[1:],mdCrabs)
 
 
