@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 #Read in the cleaned versions of the crab popualtion data
-nc = pd.read_csv("data/ncDropped.csv")
-md = pd.read_csv("data/mdDropped.csv")
+nc = pd.read_csv("data/cleaned/ncDropped.csv")
+md = pd.read_csv("data/cleaned/mdDropped.csv")
 
 #Varibles to pinpoint the columns that contain the total crab counts  
 ncColumnName = "Total Catch"
@@ -53,6 +53,7 @@ def percentChange (list):
 #Call function for both states inorder to collect stats on change in populations 
 mdStats = percentChange(mdList)
 ncStats = percentChange(ncList)
+
 #print(mdStats)
 #print(ncStats)
 
