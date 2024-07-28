@@ -54,6 +54,16 @@ def percentChange (list):
 mdStats = percentChange(mdList)
 ncStats = percentChange(ncList)
 
+#Save myPercents as dataframes
+#Will make this a function later
+ncGraphDf = pd.DataFrame(ncStats[1],columns = ['Crabs'])
+mdGraphDf = pd.DataFrame(mdStats[1],columns = ['Crabs'])
+
+#Write dataframes to CSVs for visuals
+ncGraphDf.to_csv('ncGraph.csv',header=True, index=False)
+mdGraphDf.to_csv('mdGraph.csv',header=True, index=False)
+
+#print(ncGraphDf)
 #print(mdStats)
 #print(ncStats)
 
