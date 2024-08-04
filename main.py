@@ -5,7 +5,7 @@ from visuals import graphs
 from etl import extract
 from analysis import models
 
-#new test
+#Next test
 
 #Choose a state to generate visuals for
 mdCrabs = extract.ingestCSV("data/graph/mdGraph.csv")
