@@ -9,7 +9,7 @@ from analysis import models
 
 #Choose a state to generate visuals for
 mdCrabs = extract.ingestCSV("data/graph/mdGraph.csv")
-mdYears= extract.ingestCSV("data/cleaned/mdDropped.csv")
+mdYears = extract.ingestCSV("data/cleaned/mdDropped.csv")
 
 
 #Trouble importing from models.py will fix
