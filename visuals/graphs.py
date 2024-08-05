@@ -79,7 +79,9 @@ def lineGraph(xAxis,yAxis):
     #xValues = np.array(xAxis)
     #yValues = np.array(yAxis)
     plt.plot(xAxis,yAxis)
+    plt.savefig('data/visuals/percent_visual.png') 
     plt.show()
+    
 
 #Important to exclude first year becasue the percentages are values of change between 2 years
 #Uncomment to generate visuals
@@ -140,7 +142,9 @@ def linearRegressionTest(df,xColumn,yColumn):
     plt.xlabel('X')
     plt.ylabel('y')
     plt.title('Linear Regression Test')
+    plt.savefig('data/visuals/linear_visual.png') 
     plt.show()
+    
 
 
 

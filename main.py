@@ -12,8 +12,6 @@ def main ():
     mdCrabs = extract.ingestCSV("data/graph/mdGraph.csv")
     mdYears = extract.ingestCSV("data/cleaned/mdDropped.csv")
 
-    
-
 
     #Get column data as lists
     crabList = models.getColumn(mdCrabs,"Crabs")

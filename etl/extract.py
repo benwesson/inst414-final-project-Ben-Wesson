@@ -24,4 +24,5 @@ def ingestCSV (fileName):
 marylandDF = ingestCSV(marylandCrab)
 northCarolinaDF = ingestCSV(northCarolinaCrab)
 mdTempDF = ingestCSV(mdTemp)
+#print(marylandDF)
 

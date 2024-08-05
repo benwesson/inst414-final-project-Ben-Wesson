@@ -54,7 +54,7 @@ ncComma = dropCommas(nc)
 mdDrop = dropColumns(mdComma,mdList)
 ncDrop = dropColumns(ncComma,ncList)
 mdTempDrop = dropColumns(mdTemp,mdTempList)
-
+print(mdDrop)
 #Drop extra rows
 mdTempDrop.drop(mdTempDrop.tail(5).index,inplace=True)
 #print(mdDrop)
