@@ -56,7 +56,7 @@ def getColumn (df,columnName):
 
 
 ncYears = getColumn(nc,"Year")
-mdYears = getColumn(md,"Survey Year (Year Survey Ended)")
+mdYears = getColumn(md,"Year")
 mdCrabs = getColumn(marylandDF,"Crabs")
 ncCrabs = getColumn(northCarolinaDF,"Crabs")
 print(ncCrabs)
@@ -89,6 +89,7 @@ def lineGraph(xAxis,yAxis):
 #print(mergedMd.dtypes)
 #Sci kit learn
 
+"""
 x = getColumn(mergedMd,"Annual")
 x = np.array(x)
 x = x.reshape(10,2)
@@ -107,11 +108,41 @@ print(model.score(x_test, y_test))
 
 y_pred = model.predict(x_test)
 
-plt.scatter(x_test, y_test, color='blue')
-plt.plot(x_test, y_pred, color='red')
+plt.scatter(x_test, y_test)
+plt.plot(x_test, y_pred)
 plt.xlabel('X')
 plt.ylabel('y')
-plt.title('Linear Regression')
+plt.title('Linear Regression Test')
 plt.show()
+"""
+
+def linearRegressionTest(df,xColumn,yColumn):
+    x = getColumn(df,xColumn)
+    x = np.array(x)
+    x = x.reshape(10,2)
+    y = getColumn(df,yColumn)
+    y = np.array(y)
+    y = y.reshape(10,2)
+    x_train, x_test, y_train, y_test = train_test_split(x, y,test_size=4, random_state=4,shuffle=False)
+
+    model = LinearRegression().fit(x_train, y_train)
+    model.intercept_
+    print(model.coef_)
+
+
+    print(model.score(x_train, y_train))
+    print(model.score(x_test, y_test))
+
+    y_pred = model.predict(x_test)
+
+    plt.scatter(x_test, y_test)
+    plt.plot(x_test, y_pred)
+    plt.xlabel('X')
+    plt.ylabel('y')
+    plt.title('Linear Regression Test')
+    plt.show()
+
+
+
 
 

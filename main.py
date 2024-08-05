@@ -4,41 +4,33 @@ import matplotlib.pyplot as plt
 from visuals import graphs
 from etl import extract
 from analysis import models
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 
-#Next test
+def main ():
+    #Choose a state to generate visuals for
+    mdCrabs = extract.ingestCSV("data/graph/mdGraph.csv")
+    mdYears = extract.ingestCSV("data/cleaned/mdDropped.csv")
 
-#Choose a state to generate visuals for
-mdCrabs = extract.ingestCSV("data/graph/mdGraph.csv")
-mdYears = extract.ingestCSV("data/cleaned/mdDropped.csv")
+    
 
 
-#Trouble importing from models.py will fix
-def getColumn (df,columnName):
-    """
-    Crab Popualtion Count Locater
+    #Get column data as lists
+    crabList = models.getColumn(mdCrabs,"Crabs")
+    yearList = models.getColumn(mdYears,"Year")
 
-    Parameters
-    df : pandas dataframe
-        dataset on crab populations for a given year for a certain state.
-    columnName : string
-        name of the column in the dataset that has the crab population counts
+    #Plot data
+    #years for x axis, population for y axis
+    ##Important to exclude first year becasue the percentages are values of change between 2 years
+    graphs.lineGraph(yearList[1:],crabList)
+    
+    #Linear regression testing
+    df = pd.read_csv("data/cleaned/mergedData.csv")
+    df.drop(df.tail(1).index,inplace=True)
+    graphs.linearRegressionTest(df,"Annual","Total Number of Crabs in Millions (All Ages)")
 
-    Returns
-    list : The column of crab population count values as a list
-    """
-    df = df.get(columnName) 
-    list = df.to_list()
-    return list
-
-#Get column data as lists
-crabList = getColumn(mdCrabs,"Crabs")
-yearList = getColumn(mdYears,"Survey Year (Year Survey Ended)")
-
-#Plot data
-#years for x axis, population for y axis
-##Important to exclude first year becasue the percentages are values of change between 2 years
-graphs.lineGraph(yearList[1:],crabList)
-
+x = main()
+print(x)
 
 
 
