@@ -55,41 +55,31 @@ mdDrop = dropColumns(mdComma,mdList)
 ncDrop = dropColumns(ncComma,ncList)
 mdTempDrop = dropColumns(mdTemp,mdTempList)
 
-#Rename column
-#mdDrop.rename(columns = {'Survey Year (Year Survey Ended)':'Year'},inplace =True)
-
-#print(mdDrop)
-
-#mdDrop.set_index(['Year'], inplace = True)
-#mdTempDrop.set_index(['Year'], inplace = True)
-
+#Drop extra rows
 mdTempDrop.drop(mdTempDrop.tail(5).index,inplace=True)
-print(mdDrop)
-print(mdTempDrop)
+#print(mdDrop)
+#print(mdTempDrop)
 
-#mdDrop['Year'] = mdDrop['Year'].astype(int)
-print(mdDrop.columns)
+
 #print(mdDrop.columns)
+
+#Make sure data is all ints
 convert = {'Year' : int, 'Total Number of Crabs in Millions (All Ages)' : int}
 mdDrop = mdDrop.astype(convert)
 #print(mdDrop.dtypes)
 convert = {'Year' : int, 'Annual' : int}
 mdTempDrop = mdTempDrop.astype(convert)
+
 #print(mdTempDrop.dtypes)
-#mdDrop['Year'] = mdDrop['Year'].astype(int)
-#mdTempDrop['Year'] = mdTempDrop['Year'].astype(int)
+
 
 #Merge databases
 mergedData = pd.merge(mdDrop,mdTempDrop,how="inner",on=["Year"])
-#print(dftest)
-#print(dftest)
+print(mergedData)
 
 #Write cleaned dataframes to new CSVs
 mergedData.to_csv('data/cleaned/mergedData.csv',header=True, index=False)
+mdDrop.to_csv('data/cleaned/mdDropped.csv',header=True, index=False)
+ncDrop.to_csv('data/cleaned/ncDropped.csv',header=True, index=False)
 
-#dftest.to_csv(path_or_buf="data\cleaned")
-##mdTempDrop.to_csv('mdTempDrop.csv',header=True, index=False)
-#print(mdDrop)
-#print(ncDrop)
 
-#Merge dataframes
