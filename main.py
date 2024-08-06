@@ -6,8 +6,20 @@ from etl import extract
 from analysis import models
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+import logging
+import mylib
 
+logger = logging.getLogger(__name__)
 def main ():
+
+    #Setup logger
+    logging.basicConfig(filename='main.log', level=logging.INFO)
+    logger.info('Started')
+    mylib.do_something()
+    logger.info('Finished') 
+    logging.debug('Test')
+
+
     #Choose a state to generate visuals for
     mdCrabs = extract.ingestCSV("data/graph/mdGraph.csv")
     mdYears = extract.ingestCSV("data/cleaned/mdDropped.csv")
@@ -27,8 +39,9 @@ def main ():
     df.drop(df.tail(1).index,inplace=True)
     graphs.linearRegressionTest(df,"Annual","Total Number of Crabs in Millions (All Ages)")
 
-x = main()
-print(x)
+if __name__ == '__main__':
+    main()
+
 
 
 
