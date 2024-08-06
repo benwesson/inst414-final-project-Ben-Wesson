@@ -15,7 +15,7 @@ Setup Instructions
 
 2.Set up virtual enviroment. To do this open terminal. The enter this command python -m venv [environment name]. Then this command source [environment name]/bin/activate. Then choose a file to store your data. 
 
-3.Run the requirments.txt file in the setup folder. Open the terminal and run this command pip install -r setup/requirements.txt  
+3.Run the requirments.txt file in the setup folder. Open the terminal and run this command pip install -r requirements.txt  
 
 Running the Project
 1.Follow the logic in main.py. Choose a state to examine. Then get the graph and cleaned file that corresponds to your chosen state. MD for maryland and nc for north carolina. 
