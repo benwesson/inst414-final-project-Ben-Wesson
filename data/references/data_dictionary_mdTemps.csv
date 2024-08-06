@@ -1,0 +1,15 @@
+﻿attribute_name,description,data_type,example_value,unit
+Year,The year in which these temperature measurements took place.,string,,years
+Jan,Average temperature for the month of  January,numeric,34.1,Fahrenheit
+Feb,Average temperature for the month of   February,numeric,39.5,Fahrenheit
+Mar,Average temperature for the month of   March,numeric,42.6,Fahrenheit
+Apr,Average temperature for the month of April,numeric,54.9,Fahrenheit
+May,Average temperature for the month of  May,numeric,63.6,Fahrenheit
+Jun,Average temperature for the month of June,numeric,73.9,Fahrenheit
+Jul,Average temperature for the month of Jul,numeric,73.8,Fahrenheit
+Aug,Average temperature for the month of Aug,numeric,67.7,Fahrenheit
+Sep,Average temperature for the month of September,numeric,58.3,Fahrenheit
+Oct,Average temperature for the month of October,numeric,52.8,Fahrenheit
+Nov,Average temperature for the month of  November,numeric,45.3,Fahrenheit
+Dec,Average temperature for the month of December,numeric,42.1,Fahrenheit
+Annual,Average temperature for a given year,numeric,57.1,Fahrenheit
