@@ -1,7 +1,7 @@
 
 from  etl.extract import ingestCSV
 from etl.transform_and_load import dropColumns,convertData,mergeDf
-from analysis.models import lineGraph
+from analysis.models import lineGraph,regressionGraph,predictiveModel
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -29,12 +29,19 @@ def main():
     #Read in cleaned dataset
     merged_df = pd.read_csv("data/cleaned/merged_data.csv")
 
-    
-    lineGraph(merged_df,'Year','Annual','Year to Year Temperature Change In Maryland','Year','Mean Annual Temperature')
+    #Generate line graphs
+    lineGraph(merged_df,'Year','Annual','Year to Year Temperature Change In Maryland','Year','Mean Annual Temperature(Fahrenheit)')
+    lineGraph(merged_df,'Year','Total Number of Crabs in Millions (All Ages)','Year to Year Chesapeake Bay Crab Population Change','Year','Crabs(Millions)')
 
+    #Generate regression graphs
+    regressionGraph("Annual","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Annual Temperature In Maryland",'Mean Annual Temperature(Fahrenheit)',"Crabs(Millions)")
+    regressionGraph("Winter(Dec-Feb)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Winter Temperature In Maryland",'Mean Winter Temperature(Fahrenheit)','Crabs(Millions)')
+    regressionGraph("Spring(Mar-May)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Spring Temperature In Maryland",'Mean Spring Temperature(Fahrenheit)','Crabs(Millions)')
+    regressionGraph("Summer(Jun-Aug)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Summer Temperature In Maryland",'Mean Summer Temperature(Fahrenheit)','Crabs(Millions)')
+    regressionGraph("Autum(Sep-Nov)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Fall Temperature In Maryland",'Mean Fall Temperature(Fahrenheit)','Crabs(Millions)')
 
-
-
+    #Predict next years crab count based on average 2024 summer and spring temperatures
+    predictiveModel("Spring(Mar-May)","Summer(Jun-Aug)",merged_df)
 
 if __name__ == '__main__':
     main()
