@@ -1,9 +1,6 @@
 import pandas as pd
 
-#CSV filenames to be used as parameters for ingestion function
-marylandCrab = "data/raw/maryland_crab.csv"
-northCarolinaCrab = "data/raw/north_carolina_crabs.csv"
-mdTemp = "data/raw/md_avg.csv"
+
 
 def ingestCSV (fileName):
     """
@@ -20,9 +17,4 @@ def ingestCSV (fileName):
 
     return df
 
-#Call function for all datasets needed to prep for cleaning
-marylandDF = ingestCSV(marylandCrab)
-northCarolinaDF = ingestCSV(northCarolinaCrab)
-mdTempDF = ingestCSV(mdTemp)
-#print(marylandDF)
 

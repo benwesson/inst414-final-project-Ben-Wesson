@@ -1,14 +1,68 @@
+
+from  etl.extract import ingestCSV
+from etl.transform_and_load import dropColumns,convertData,mergeDf
 import pandas as pd
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
-from visuals import graphs
-from etl import extract
-from analysis import models
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-import logging
-import mylib
 
+def main():
+    #Load CSVs into dataframes.
+    average_temperature_df = ingestCSV("data/raw/average_temperature.csv")
+    maryland_crab_df = ingestCSV("data/raw/maryland_crab.csv")
+
+    #Drop extra columns.
+    maryland_crab_df_drop = dropColumns(maryland_crab_df,[2,3,4,5,6])
+    #print(maryland_crab_df_drop)
+
+    #Prepare for merge.
+    maryland_crab_df_ready,average_temperature_df_ready = convertData(maryland_crab_df_drop,average_temperature_df)
+     
+    #Create merged dataframe.
+    merged_df = mergeDf(maryland_crab_df_ready,average_temperature_df_ready)
+    #print(merged_df)
+    
+    #Write the merged dataframe to the cleaned data folder
+    merged_df.to_csv('data/cleaned/merged_data.csv',header=True, index=False)
+
+    #Read in cleaned dataset
+    merged_df = pd.read_csv("data/cleaned/merged_data.csv")
+
+    def lineGraph(df,col1,col2,graphTitle,xAxis,yAxis):
+        #graphData = sns.load_dataset(df)
+        saveString = "data/visuals/" + graphTitle + ".png"
+        sns.lineplot(x = col1,y = col2,data = df).set(title=graphTitle)
+        plt.xlabel(xAxis)
+        plt.ylabel(yAxis)
+        plt.savefig(saveString)
+        plt.show()
+
+    lineGraph(merged_df,'Year','Annual','Year to Year Temperature Change In Maryland','Year','Mean Annual Temperature')
+
+
+
+
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 logger = logging.getLogger(__name__)
 def main ():
 
@@ -37,10 +91,19 @@ def main ():
     #Linear regression testing
     df = pd.read_csv("data/cleaned/mergedData.csv")
     df.drop(df.tail(1).index,inplace=True)
-    graphs.linearRegressionTest(df,"Annual","Total Number of Crabs in Millions (All Ages)")
+    y = df['Total Number of Crabs in Millions (All Ages)'].to_list()
+    x = df['Annual'].to_list()
 
-if __name__ == '__main__':
-    main()
+    sns.set_style('whitegrid') 
+    print(sns.lmplot(x ='Annual', y ='Total Number of Crabs in Millions (All Ages)', data = df))
+   
+    #plt.scatter(x, y)
+    plt.show()
+   
+
+
+
+"""
 
 
 

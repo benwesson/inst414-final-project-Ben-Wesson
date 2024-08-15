@@ -1,6 +1,6 @@
-import extract
-import pandas as pd
 
+import pandas as pd
+"""
 #Import the raw dataframes from the extract file. No changes have been made yet
 md = extract.marylandDF
 nc = extract.northCarolinaDF
@@ -16,6 +16,9 @@ mdTempList = [1,2,3,4,5,6,7,8,9,10,11,12]
 #Add function to create mergerd CSV with shared years
 #Convert to common units. 
 #Not needed yet because I am at first focusing on measuirng percent change
+
+"""
+
 
 def dropCommas (df):
     """
@@ -46,35 +49,25 @@ def dropColumns (df,list):
     df.drop(df.columns[list],axis = 1, inplace = True)
     return df
 
-#Call function to drop commas in population numbers
-mdComma = dropCommas(md)
-ncComma = dropCommas(nc)
-
-#Call function to drop uneeded columns 
-mdDrop = dropColumns(mdComma,mdList)
-ncDrop = dropColumns(ncComma,ncList)
-mdTempDrop = dropColumns(mdTemp,mdTempList)
-print(mdDrop)
-#Drop extra rows
-mdTempDrop.drop(mdTempDrop.tail(5).index,inplace=True)
-#print(mdDrop)
-#print(mdTempDrop)
-
-
-#print(mdDrop.columns)
 
 #Make sure data is all ints
-convert = {'Year' : int, 'Total Number of Crabs in Millions (All Ages)' : int}
-mdDrop = mdDrop.astype(convert)
-#print(mdDrop.dtypes)
-convert = {'Year' : int, 'Annual' : int}
-mdTempDrop = mdTempDrop.astype(convert)
+def convertData(df1,df2):
+    convert1 = {'Year' : int, 'Total Number of Crabs in Millions (All Ages)' : int}
+    convert2 = {'Year': int,  'Annual': float,'Winter(Dec-Feb)': float,'Spring(Mar-May)': float,'Summer(Jun-Aug)': float,'Autum(Sep-Nov)': float,}
+    df1 = df1.astype(convert1)
+    df2 = df2.astype(convert2)
+    return df1,df2
 
+#print(mdDrop.dtypes)
+
+def mergeDf(df1,df2):
+    mergedData = pd.merge(df1,df2,how="inner",on=["Year"])
+    return mergedData
 #print(mdTempDrop.dtypes)
 
-
+"""
 #Merge databases
-mergedData = pd.merge(mdDrop,mdTempDrop,how="inner",on=["Year"])
+
 print(mergedData)
 
 #Write cleaned dataframes to new CSVs
@@ -83,3 +76,5 @@ mdDrop.to_csv('data/cleaned/mdDropped.csv',header=True, index=False)
 ncDrop.to_csv('data/cleaned/ncDropped.csv',header=True, index=False)
 
 
+
+"""
