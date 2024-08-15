@@ -1,6 +1,7 @@
 
 from  etl.extract import ingestCSV
 from etl.transform_and_load import dropColumns,convertData,mergeDf
+from analysis.models import lineGraph
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -28,15 +29,7 @@ def main():
     #Read in cleaned dataset
     merged_df = pd.read_csv("data/cleaned/merged_data.csv")
 
-    def lineGraph(df,col1,col2,graphTitle,xAxis,yAxis):
-        #graphData = sns.load_dataset(df)
-        saveString = "data/visuals/" + graphTitle + ".png"
-        sns.lineplot(x = col1,y = col2,data = df).set(title=graphTitle)
-        plt.xlabel(xAxis)
-        plt.ylabel(yAxis)
-        plt.savefig(saveString)
-        plt.show()
-
+    
     lineGraph(merged_df,'Year','Annual','Year to Year Temperature Change In Maryland','Year','Mean Annual Temperature')
 
 
