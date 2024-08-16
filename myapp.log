@@ -1,1 +1,61 @@
 
+INFO:__main__:Started
+INFO:__main__:Save files a dataframes
+INFO:__main__:drop columns from datasets
+INFO:__main__:Dataframes now contain all numeric data
+INFO:__main__:Merge crab and temperature dataframe
+INFO:__main__:Save merged dataframe to data/cleaned
+INFO:__main__:read in cleaned dataset
+INFO:__main__:Basic line graphs generated
+INFO:__main__:Annual: [[1.         0.03815634]
+ [0.03815634 1.        ]]
+INFO:__main__:Winter: [[ 1.         -0.00133561]
+ [-0.00133561  1.        ]]
+INFO:__main__:Spring: [[1.         0.12652417]
+ [0.12652417 1.        ]]
+INFO:__main__:Summer: [[1.         0.13868248]
+ [0.13868248 1.        ]]
+INFO:__main__:Autum: [[ 1.         -0.29852107]
+ [-0.29852107  1.        ]]
+INFO:__main__:2024 crab prediction: [338.97767725]
+INFO:__main__:Finished
+INFO:__main__:Started
+INFO:__main__:Save files a dataframes
+INFO:__main__:drop columns from datasets
+INFO:__main__:Dataframes now contain all numeric data
+INFO:__main__:Merge crab and temperature dataframe
+INFO:__main__:Save merged dataframe to data/cleaned
+INFO:__main__:read in cleaned dataset
+INFO:__main__:Basic line graphs generated
+INFO:__main__:Annual: [[1.         0.03815634]
+ [0.03815634 1.        ]]
+INFO:__main__:Winter: [[ 1.         -0.00133561]
+ [-0.00133561  1.        ]]
+INFO:__main__:Spring: [[1.         0.12652417]
+ [0.12652417 1.        ]]
+INFO:__main__:Summer: [[1.         0.13868248]
+ [0.13868248 1.        ]]
+INFO:__main__:Autum: [[ 1.         -0.29852107]
+ [-0.29852107  1.        ]]
+INFO:__main__:2024 crab prediction: [338.97767725]
+INFO:__main__:Finished
+INFO:__main__:Started
+INFO:__main__:Save files a dataframes
+INFO:__main__:drop columns from datasets
+INFO:__main__:Dataframes now contain all numeric data
+INFO:__main__:Merge crab and temperature dataframe
+INFO:__main__:Save merged dataframe to data/cleaned
+INFO:__main__:read in cleaned dataset
+INFO:__main__:Basic line graphs generated
+INFO:__main__:Annual: [[1.         0.03815634]
+ [0.03815634 1.        ]]
+INFO:__main__:Winter: [[ 1.         -0.00133561]
+ [-0.00133561  1.        ]]
+INFO:__main__:Spring: [[1.         0.12652417]
+ [0.12652417 1.        ]]
+INFO:__main__:Summer: [[1.         0.13868248]
+ [0.13868248 1.        ]]
+INFO:__main__:Autum: [[ 1.         -0.29852107]
+ [-0.29852107  1.        ]]
+INFO:__main__:2024 crab prediction: [338.97767725]
+INFO:__main__:Finished

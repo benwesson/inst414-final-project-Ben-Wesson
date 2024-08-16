@@ -1,7 +1,0 @@
-﻿attribute_name,description,data_type,example_vaue,unit
-Year,The given year that crab population was analyzed,catgorical ,2011,years
-,,,,
-Total Effort,Amount of time dedicated to crab harvest,numeric,"24,818",thousands
-Total Harvest,Amount of crabs caught and not released,numeric,"114,426",thousands
-Total Release,Amount of crabs caught and relaeased,numeric,"60,000",thousands
-Total Catch,Number of crabs caught in Northcarolina,numeric,"196,189",thousands
