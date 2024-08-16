@@ -78,7 +78,7 @@ def correlationCoe(df,col1,col2,title):
         Help you identify which coefficent in the terminal.
     
     Returns
-    string : prints a labeld coefficent to terminal.
+    string : prints a labelled coefficent to terminal.
     """
     x = df[col1].to_list()
     y = df[col2].to_list()
