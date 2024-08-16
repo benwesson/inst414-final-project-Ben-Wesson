@@ -1,5 +1,3 @@
-# inst414-final-project-Ben-Wesson
-pip install -r /path/to/requirements.txt
 
 Project Overview
 1.Business problem: Maryland blue crab population fluctuates year to year causing hikes in crab prices and shortages. Maryland blue crab population has been in decline since the 1990s. 
