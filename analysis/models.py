@@ -6,8 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import scipy
 from sklearn import linear_model
-
-
+import logging
 
 
 def regressionGraph(col1,col2,df,graphTitle,xAxis,yAxis):
@@ -59,7 +58,8 @@ def predictiveModel(col1,col2,df):
     sk_reg = linear_model.LinearRegression()
     sk_reg.fit(varX.values,varY.values)
     predCrabs = sk_reg.predict([[72.7,56.8]])
-    print(predCrabs)
+    #print(predCrabs)
+    return predCrabs
 
 def correlationCoe(df,col1,col2,title):
       
@@ -78,9 +78,10 @@ def correlationCoe(df,col1,col2,title):
         Help you identify which coefficent in the terminal.
     
     Returns
-    string : prints a labelled coefficent to terminal.
+    float : Correlation coeffiecient for given model
     """
     x = df[col1].to_list()
     y = df[col2].to_list()
     r = np.corrcoef(x,y)
-    print(title,  ":  ", r)
+    #print(r)
+    return  r
