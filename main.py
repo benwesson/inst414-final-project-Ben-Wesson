@@ -11,6 +11,7 @@ def main():
     #Load CSVs into dataframes.
     average_temperature_df = ingestCSV("data/raw/average_temperature.csv")
     maryland_crab_df = ingestCSV("data/raw/maryland_crab.csv")
+    crab_prices_df = ingestCSV("data/raw/crab_prices.csv")
 
     #Drop extra columns.
     maryland_crab_df_drop = dropColumns(maryland_crab_df,[2,3,4,5,6])
@@ -32,6 +33,8 @@ def main():
     #Generate line graphs
     lineGraph(merged_df,'Year','Annual','Year to Year Temperature Change In Maryland','Year','Mean Annual Temperature(Fahrenheit)')
     lineGraph(merged_df,'Year','Total Number of Crabs in Millions (All Ages)','Year to Year Chesapeake Bay Crab Population Change','Year','Crabs(Millions)')
+    lineGraph(crab_prices_df,'Year','Blue Crab Dockside Value(Adjusted Millions)','Change in Maryland Blue Crab Dockside Value Adjusted for Inflation','Year','Blue Crab Dockside Value(Millions)')
+
 
     #Generate regression graphs
     regressionGraph("Annual","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Annual Temperature In Maryland",'Mean Annual Temperature(Fahrenheit)',"Crabs(Millions)")
