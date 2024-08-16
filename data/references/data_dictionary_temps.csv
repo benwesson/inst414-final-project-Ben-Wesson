@@ -1,0 +1,7 @@
+﻿attribute_name,description,data_type,example_value,unit
+Year,Year that the following temps were recorded in. ,int,1990,Years
+Annual,Average annual air temperature for a given year in the state of Maryland. ,float,56.6,Fahrenheit
+Winter(Dec-Feb),Average winter air temperature for a given year in the state of Maryland. ,float,35.7,Fahrenheit
+Spring(Mar-May),Average spring air temperature for a given year in the state of Maryland. ,float,53.8,Fahrenheit
+Summer(Jun-Aug),Average summer air temperature for a given year in the state of Maryland. ,float,73.5,Fahrenheit
+Autum(Sep-Nov),Average fall  air temperature for a given year in the state of Maryland. ,float,57.9,Fahrenheit

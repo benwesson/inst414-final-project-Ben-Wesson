@@ -1,0 +1,4 @@
+﻿attribute_name,description,data_type,example_value,unit
+Year,The year that the dockvalue is associated with.,int,1997,Year
+Blue Crab Dockside Value(Millions),Total valuation of Maryland Blue Crab harvest in millions of USD.,int,70,Millions of USD
+Blue Crab Dockside Value(Adjusted Millions),Total valuation of Maryland Blue Crab harvest adjusted for inflation in millions of USD.,int,80,Millions of USD
