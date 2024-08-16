@@ -1,7 +1,8 @@
 
 from  etl.extract import ingestCSV
 from etl.transform_and_load import dropColumns,convertData,mergeDf
-from analysis.models import lineGraph,regressionGraph,predictiveModel
+from analysis.models import regressionGraph,predictiveModel,correlationCoe
+from visualizations.visual_functions import lineGraph
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -38,10 +39,19 @@ def main():
 
     #Generate regression graphs
     regressionGraph("Annual","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Annual Temperature In Maryland",'Mean Annual Temperature(Fahrenheit)',"Crabs(Millions)")
+    correlationCoe(merged_df,"Annual","Total Number of Crabs in Millions (All Ages)","Total Number of Crabs in Millions vs Mean Annual Temperature In Maryland")
+
     regressionGraph("Winter(Dec-Feb)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Winter Temperature In Maryland",'Mean Winter Temperature(Fahrenheit)','Crabs(Millions)')
+    correlationCoe(merged_df,"Winter(Dec-Feb)","Total Number of Crabs in Millions (All Ages)","Total Number of Crabs in Millions vs Mean Winter Temperature In Maryland")
+
     regressionGraph("Spring(Mar-May)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Spring Temperature In Maryland",'Mean Spring Temperature(Fahrenheit)','Crabs(Millions)')
+    correlationCoe(merged_df,"Spring(Mar-May)","Total Number of Crabs in Millions (All Ages)","Total Number of Crabs in Millions vs Mean Spring Temperature In Maryland")
+    
     regressionGraph("Summer(Jun-Aug)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Summer Temperature In Maryland",'Mean Summer Temperature(Fahrenheit)','Crabs(Millions)')
+    correlationCoe(merged_df,"Summer(Jun-Aug)","Total Number of Crabs in Millions (All Ages)","Total Number of Crabs in Millions vs Mean Summer Temperature In Maryland")
+
     regressionGraph("Autum(Sep-Nov)","Total Number of Crabs in Millions (All Ages)",merged_df,"Total Number of Crabs in Millions vs Mean Fall Temperature In Maryland",'Mean Fall Temperature(Fahrenheit)','Crabs(Millions)')
+    correlationCoe(merged_df,"Autum(Sep-Nov)","Total Number of Crabs in Millions (All Ages)","Total Number of Crabs in Millions vs Mean Fall Temperature In Maryland")
 
     #Predict next years crab count based on average 2024 summer and spring temperatures
     predictiveModel("Spring(Mar-May)","Summer(Jun-Aug)",merged_df)
