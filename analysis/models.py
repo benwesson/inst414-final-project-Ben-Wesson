@@ -15,11 +15,22 @@ def regressionGraph(col1,col2,df,graphTitle,xAxis,yAxis):
     Regression model plotter
 
     Parameters
-    fileName : CSV file
-        Dataset on crab populations for a given year for a certain state. 
+    col1 : string
+        string repersenting column in merged database.
+    col2 : string
+        string repersenting column in merged database.
+    df : pandas dataframe
+        Dataframe of merged values form the crab population and temperature csvs
+    graphTitle : string
+        Label for graphs title
+    xAxis : string 
+        Label for graphs x axis
+    yAxis
+        Label for graphs y axis
+
     
     Returns
-    df : A pandas dataframe of the CSV file ready for cleaning.
+    figure : A plot showing a regression model with line of best fit. It gets saved to data/visuals.
     """
     sns.regplot(x=col1,y=col2,data = df).set(title=graphTitle)
     saveString = "data/visuals/" + graphTitle + ".png"
@@ -30,14 +41,18 @@ def regressionGraph(col1,col2,df,graphTitle,xAxis,yAxis):
 
 def predictiveModel(col1,col2,df):
     """
-    CSV to pandas Dataframe Converter
+    Make prediction about 2024 crab popualtion
 
     Parameters
-    fileName : CSV file
-        Dataset on crab populations for a given year for a certain state. 
+    col1 : string
+        string repersenting column in merged database.
+    col2 : string
+        string repersenting column in merged database.
+    df : pandas dataframe
+        Dataframe of merged values form the crab population and temperature csvs
     
     Returns
-    df : A pandas dataframe of the CSV file ready for cleaning.
+    float : prints a number in the terminal repersenting the estiamted crab count for 2024
     """
     varX = df[[col1,col2]]
     varY = df['Total Number of Crabs in Millions (All Ages)']
@@ -50,14 +65,20 @@ def correlationCoe(df,col1,col2,title):
       
 
     """
-    CSV to pandas Dataframe Converter
+    Produce a correlation coefficent for a given plot
 
     Parameters
-    fileName : CSV file
-        Dataset on crab populations for a given year for a certain state. 
+    col1 : string
+        string repersenting column in merged database.
+    col2 : string
+        string repersenting column in merged database.
+    df : pandas dataframe
+        Dataframe of merged values form the crab population and temperature csvs
+    string : title
+        Help you identify which coefficent in the terminal.
     
     Returns
-    df : A pandas dataframe of the CSV file ready for cleaning.
+    string : prints a labeld coefficent to terminal.
     """
     x = df[col1].to_list()
     y = df[col2].to_list()
