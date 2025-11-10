@@ -1,10 +1,4 @@
-!Important
-main file is sometimes slow as it generates a lot of visuals
-Code will run may take a few seconds
-Try closing the main.py and reopening
-I have cloned it from github and set environment and it does work 
-Sounds odd,but if you are using vscode trying running it in fullscreen, seems to generate visuals faster
-visuals should generate faster after first run
+
 
 
 
